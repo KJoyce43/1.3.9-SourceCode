@@ -6,7 +6,7 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'Kiernan & Travis' # Only 10 chars displayed.
+team_name = 'HackNSlash' # Only 10 chars displayed.
 strategy_name = 'I do not even know'
 strategy_description = 'trying to pass this class'
     
@@ -27,10 +27,16 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
+    if (my_history=="b" and their_history=="c"):
+        return 'b'
+    if (my_history=="bb" and their_history=="cc"):
+        return 'b'
     if (my_history=="bb" and their_history=="cb"):
         return 'c'
-    if (my_history=="bbb" and their_history=="cbc"):
-        return 'c'
+    if (my_history=="bbc" and their_history=="cbb"):
+        return 'b'
+    if (my_history=="bbc" and their_history=="cbc"):
+        return 'b'
     return 'c'
 
     
