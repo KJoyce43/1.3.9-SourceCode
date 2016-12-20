@@ -6,9 +6,9 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'HackNSlash' # Only 10 chars displayed.
-strategy_name = 'I do not even know'
-strategy_description = 'trying to pass this class'
+team_name = 'team2' # Only 10 chars displayed.
+strategy_name = 'The name the team gives to this strategy'
+strategy_description = 'How does this strategy decide?'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -17,26 +17,33 @@ def move(my_history, their_history, my_score, their_score):
     Make my move.
     Returns 'c' or 'b'. 
     '''
+
     if (my_history=='' and their_history=='' and my_score==0 and their_score==0):
         return 'b'
+    if (my_history=="c" and their_history=="b"):
+        return 'c'
+    if (my_history=="b" and their_history=="c"):
+        return 'b'
+    if (my_history=="b" and their_history=="b"):
+        return 'b'   
+    if (my_history=="cc" and their_history=="bb"):
+        return 'b'
+    if (my_history=="bb" and their_history=="bb"):
+        return 'b'
+    if (my_history=="bb" and their_history=="cb"):
+        return 'b'
+    if (my_history=="bb" and their_history=="bc"):
+        return 'c'
+    if (my_history=="cb" and their_history=="bc"):
+        return 'c'
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
     # The first round between these two players is my_history[0] and their_history[0].
-    # The most recent round is my_history[-1] and their_history[-1]. CHANGED
+    # The most recent round is my_history[-1] and their_history[-1].
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    if (my_history=="b" and their_history=="c"):
-        return 'b'
-    if (my_history=="bb" and their_history=="cc"):
-        return 'b'
-    if (my_history=="bb" and their_history=="cb"):
-        return 'c'
-    if (my_history=="bbc" and their_history=="cbb"):
-        return 'b'
-    if (my_history=="bbc" and their_history=="cbc"):
-        return 'b'
     return 'c'
 
     
@@ -77,4 +84,3 @@ if __name__ == '__main__':
               my_score=0, 
               their_score=0,
               result='b')
-   
